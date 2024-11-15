@@ -25,7 +25,9 @@ public class CouponController {
     @GetMapping("/coupon-purchase-maximization")
     ResponseEntity<List<String>> calculate(@RequestBody CouponRequest couponRequest) {
         try {
-            return new ResponseEntity<>(calculateService.calculate(couponRequest.getItems(), couponRequest.getAmount()), HttpStatus.OK);
+            log.info("Executing service calculate");
+            return new ResponseEntity<>(calculateService.calculate(
+                    couponRequest.getItems(), couponRequest.getAmount()), HttpStatus.OK);
         } catch (Exception e) {
             log.error("Error calculating coupon purchase to buy. Error -> {}", e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
