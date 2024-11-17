@@ -4,16 +4,21 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 @Slf4j
-public class CalculateServiceImpl implements CalculateService {
+public class CouponServiceV1Impl implements CouponServiceV1 {
 
     @Override
     public List<String> calculate(Map<String, Float> items, Float amount) {
+        return getItemsToPurchase(items, amount);
+    }
+
+    private List<String> getItemsToPurchase(Map<String, Float> items, Float amount) {
         List<String> itemsToPurchase = new ArrayList<>();
 
         List<Map.Entry<String, Float>> sortedItemsEntry = new ArrayList<>(items.entrySet());
@@ -32,5 +37,11 @@ public class CalculateServiceImpl implements CalculateService {
         });
 
         return itemsToPurchase;
+    }
+
+    private ArrayList<Map.Entry<String, Float>> removeDuplicatedItems(List<Map.Entry<String, Float>> sortedItemsEntry) {
+        log.info("Deleting duplicated items");
+        HashSet<Map.Entry<String, Float>> set = new HashSet<>(sortedItemsEntry);
+        return  new ArrayList<>(set);
     }
 }
