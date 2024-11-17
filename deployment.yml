@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: coupon-manager
-          image: 692859941338.dkr.ecr.us-east-2.amazonaws.com/stickrepo:latest
+          image: DOCKER_IMAGE
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
