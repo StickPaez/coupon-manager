@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: coupon-manager-service
+  labels:
+    app: coupon-manager
+spec:
+  selector:
+    app: coupon-manager
+
+  ports:
+    - port: 8085
+      targetPort: 8085
+
+  type: LoadBalancer
