@@ -9,7 +9,7 @@ spec:
     app: coupon-manager
 
   ports:
-    - port: 8085
-      targetPort: 8085
+    - port: 8080
+      targetPort: 8080
 
   type: LoadBalancer
