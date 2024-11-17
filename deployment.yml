@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: couponManager
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: couponManager
+  template:
+    metadata:
+      labels:
+        app: couponManager
+    spec:
+      containers:
+        - name: couponManager
+          image: 692859941338.dkr.ecr.us-east-2.amazonaws.com/stickrepo:latest
+          ports:
+            - containerPort: 80
