@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/coupons")
+@RequestMapping("/api/v1/coupons")
 @Slf4j
 
 public class CouponServiceV1Controller {
@@ -19,7 +19,7 @@ public class CouponServiceV1Controller {
     @Autowired
     private CouponServiceV1 couponServiceV1;
 
-    @GetMapping("/coupon")
+    @GetMapping("")
     public ResponseEntity<List<String>> itemsToPurchase(@RequestBody CouponRequest couponRequest) {
         try {
             log.info("Executing service getItemsToPurchase");
