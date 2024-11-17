@@ -1,12 +1,6 @@
 # Utilizar la imagen base de Maven con OpenJDK 21
 FROM maven:3.9.9-amazoncorretto-21-alpine
 
-# Configurar la variable de entorno JAVA_HOME
-ENV JAVA_HOME /usr/local/openjdk-21
-
-# Verificar que JAVA_HOME está configurado correctamente (no necesario, pero útil para depuración)
-RUN echo "JAVA_HOME is set to $JAVA_HOME"
-
 # Crear directorio para la aplicación y establecerlo como el directorio de trabajo
 RUN mkdir -p /app
 WORKDIR /app
