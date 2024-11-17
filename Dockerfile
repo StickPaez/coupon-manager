@@ -13,7 +13,7 @@ WORKDIR /app
 
 # Copiar el archivo pom.xml y otros archivos necesarios al contenedor
 COPY pom.xml /app
-COPY bootstrap.yml /app
+COPY src/main/resources/bootstrap.yml /app
 COPY src /app/src
 
 # Construir el proyecto Maven
@@ -23,7 +23,7 @@ RUN mvn -f pom.xml clean package
 RUN cp target/*.jar app.jar
 
 # Exponer el puerto que usa la aplicación
-EXPOSE 8863
+EXPOSE 8085
 
 # Configurar el comando de entrada para ejecutar la aplicación con el archivo bootstrap.yml
 ENTRYPOINT ["java","-jar","app.jar","--spring.config.location=classpath:/bootstrap.yml"]
