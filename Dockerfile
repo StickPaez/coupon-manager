@@ -1,5 +1,5 @@
 # Utilizar la imagen base de Maven con OpenJDK 21
-FROM maven:3.9.0-openjdk-21
+FROM maven:3.9.9-amazoncorretto-21-alpine
 
 # Configurar la variable de entorno JAVA_HOME
 ENV JAVA_HOME /usr/local/openjdk-21
