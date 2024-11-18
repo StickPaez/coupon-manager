@@ -79,7 +79,7 @@ public class CouponServiceV2Impl implements CouponServiceV2 {
         log.info("Searching price for items");
             couponRequest.getItemIds().parallelStream().forEach(itemId -> {
                 try {
-                    ItemResponse itemResponse = mercadoLibreConsumer.items(itemId);
+                    ItemResponse itemResponse = mercadoLibreConsumer.getItemData(itemId);
                     itemsWithPrice.put(itemResponse.getId(), itemResponse.getPrice());
                 }catch (Exception e) {
                     log.error("Error getting data from itemId {}. Error -> {}", itemId, e.getMessage());
