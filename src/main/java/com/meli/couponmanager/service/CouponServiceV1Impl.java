@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -37,11 +36,5 @@ public class CouponServiceV1Impl implements CouponServiceV1 {
         });
 
         return itemsToPurchase;
-    }
-
-    private ArrayList<Map.Entry<String, Float>> removeDuplicatedItems(List<Map.Entry<String, Float>> sortedItemsEntry) {
-        log.info("Deleting duplicated items");
-        HashSet<Map.Entry<String, Float>> set = new HashSet<>(sortedItemsEntry);
-        return  new ArrayList<>(set);
     }
 }

@@ -6,8 +6,8 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class CouponResponse {
+public class CouponRequestV2 {
     @JsonProperty("item_ids")
     private List<String> itemIds;
-    private Float total;
+    private Float amount;
 }
