@@ -17,7 +17,7 @@ RUN mvn -f pom.xml clean package
 RUN cp target/*.jar app.jar
 
 # Exponer el puerto que usa la aplicación
-EXPOSE 8085
+EXPOSE 8080
 
 # Configurar el comando de entrada para ejecutar la aplicación con el archivo bootstrap.yml
 ENTRYPOINT ["java","-jar","app.jar","--spring.config.location=classpath:/bootstrap.yml"]
