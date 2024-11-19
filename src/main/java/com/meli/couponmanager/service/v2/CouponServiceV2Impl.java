@@ -1,4 +1,4 @@
-package com.meli.couponmanager.service;
+package com.meli.couponmanager.service.v2;
 
 import com.meli.couponmanager.dto.CouponRequestV2;
 import com.meli.couponmanager.dto.CouponResponse;
@@ -22,7 +22,7 @@ public class CouponServiceV2Impl implements CouponServiceV2 {
     MercadoLibreConsumer mercadoLibreConsumer;
 
     @Override
-    public CouponResponse calculate(CouponRequestV2 couponRequest) {
+    public CouponResponse itemsToPurchaseAndTotal(CouponRequestV2 couponRequest) {
         CouponResponse response = new CouponResponse();
 
         Map<String, Float> itemsWithPrice = searchPricesByItems(couponRequest);
@@ -63,7 +63,7 @@ public class CouponServiceV2Impl implements CouponServiceV2 {
         AtomicReference<Float> totalAmount = new AtomicReference<>(0f);
 
         if (!itemsToPurchase.isEmpty()) {
-            log.info("calculating total amount");
+            log.info("Calculating total amount");
             itemsToPurchase.parallelStream().forEach(itemId -> {
                 if (itemIds.containsKey(itemId)) {
                     totalAmount.updateAndGet(value -> value + itemIds.get(itemId).intValue());

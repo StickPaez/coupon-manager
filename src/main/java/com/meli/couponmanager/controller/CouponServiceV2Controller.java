@@ -2,7 +2,7 @@ package com.meli.couponmanager.controller;
 
 import com.meli.couponmanager.dto.CouponRequestV2;
 import com.meli.couponmanager.dto.CouponResponse;
-import com.meli.couponmanager.service.CouponServiceV2;
+import com.meli.couponmanager.service.v2.CouponServiceV2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class CouponServiceV2Controller {
     @PostMapping("/coupon")
     public ResponseEntity<CouponResponse> itemsToPurchaseAndTotal(@RequestBody CouponRequestV2 couponRequest) {
         log.info("Executing service itemsToPurchaseAndTotal");
-        CouponResponse couponResponse = couponServiceV2.calculate(couponRequest);
+        CouponResponse couponResponse = couponServiceV2.itemsToPurchaseAndTotal(couponRequest);
         log.info("Service itemsToPurchaseAndTotal completed");
         return new ResponseEntity<>(couponResponse, !couponResponse.getItemIds().isEmpty() ?
                 HttpStatus.OK : HttpStatus.NOT_FOUND);

@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.meli</groupId>
-	<artifactId>couponManager</artifactId>
+	<artifactId>coupon-manager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>couponManager</name>
-	<description>couponManager</description>
+	<name>coupon-manager</name>
+	<description>coupon-manager</description>
 	<url/>
 	<licenses>
 		<license/>

@@ -1,4 +1,4 @@
-package com.meli.couponmanager.service;
+package com.meli.couponmanager.service.v1;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 @Slf4j
-public class CouponServiceV1Impl implements CouponServiceV1 {
+public class CouponServiceImpl implements CouponService {
 
     @Override
     public List<String> calculate(Map<String, Float> items, Float amount) {

@@ -2,7 +2,7 @@ server:
   port: 8085
 spring:
   application:
-    name: couponManager
+    name: coupon-manager
 integration:
   services:
     mercado-libre:
