@@ -40,13 +40,6 @@ jobs:
       - name: Update kube config
         run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
 
-      - name: Check Kubernetes config
-        run: |
-          cat ~/.kube/config
-
-      - name: Check current Kubernetes context
-        run: kubectl config current-context
-
       - name: Deploy to EKS
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}

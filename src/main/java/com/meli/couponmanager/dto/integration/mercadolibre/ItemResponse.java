@@ -21,14 +21,14 @@ public class ItemResponse {
     private Float price;
 
     @JsonProperty("base_price")
-    private Integer basePrice;
+    private Float basePrice;
 
     @JsonProperty("original_price")
-    private Integer originalPrice;
+    private Float originalPrice;
 
     @JsonProperty("currency_id")
     private String currencyId;
 
     @JsonProperty("initial_quantity")
-    private Integer initialQuantity;
+    private Float initialQuantity;
 }
