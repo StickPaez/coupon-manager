@@ -3,6 +3,7 @@ package com.meli.couponmanager.service.v2;
 import com.meli.couponmanager.dto.CouponRequestV2;
 import com.meli.couponmanager.dto.CouponResponse;
 import com.meli.couponmanager.dto.integration.mercadolibre.ItemResponse;
+import com.meli.couponmanager.exceptions.ItemNotFoundException;
 import com.meli.couponmanager.integration.feign.MercadoLibreConsumer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,8 @@ public class CouponServiceV2Impl implements CouponServiceV2 {
                 }
             });
         }
-
+        if (itemsToPurchase.isEmpty())
+            throw new ItemNotFoundException("No items can be bought with the given amount");
         return itemsToPurchase;
     }
 
