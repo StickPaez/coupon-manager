@@ -98,7 +98,7 @@ Formato de **CouponRequest:**
 
 Puedes hacer una solicitud a este servicio utilizando el siguiente comando `curl`:
 
-```json
+```bash
 curl --location --request GET 'http://a305bac8e44cb43a9918502d8a19b3fa-133058759.us-east-2.elb.amazonaws.com:8080/api/v1/coupon' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -163,7 +163,7 @@ Formato de **CouponRequest:**
 ### Ejemplo de uso
 
 Puedes hacer una solicitud a este servicio utilizando el siguiente comando `curl`:
-```json
+```bash
 curl --location 'http://a305bac8e44cb43a9918502d8a19b3fa-133058759.us-east-2.elb.amazonaws.com:8080/api/v2/coupon' \
 --header 'Content-Type: application/json' \
 --data '{
