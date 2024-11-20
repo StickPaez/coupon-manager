@@ -55,9 +55,9 @@ public class CouponServiceV2Impl implements CouponServiceV2 {
                     log.info("Item {} added", item.getKey());
                 }
             });
+            if (itemsToPurchase.isEmpty())
+                throw new ItemNotFoundException("No items can be bought with the given amount");
         }
-        if (itemsToPurchase.isEmpty())
-            throw new ItemNotFoundException("No items can be bought with the given amount");
         return itemsToPurchase;
     }
 

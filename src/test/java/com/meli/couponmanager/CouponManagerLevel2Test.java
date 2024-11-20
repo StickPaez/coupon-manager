@@ -3,6 +3,7 @@ package com.meli.couponmanager;
 import com.meli.couponmanager.dto.CouponRequestV2;
 import com.meli.couponmanager.dto.CouponResponse;
 import com.meli.couponmanager.dto.integration.mercadolibre.ItemResponse;
+import com.meli.couponmanager.exceptions.ItemNotFoundException;
 import com.meli.couponmanager.integration.feign.MercadoLibreConsumer;
 import com.meli.couponmanager.service.v2.CouponServiceV2Impl;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
@@ -78,8 +80,9 @@ class CouponManagerLevel2Test {
 	public void testCalculateWithOutEnoughAmount() {
 		couponRequestV2.setAmount(5000f);
 		when(mercadoLibreConsumer.getItemData(anyString())).thenReturn(mockItemResponse);
-		CouponResponse result = couponServiceV2.itemsToPurchaseAndTotal(couponRequestV2);
-		assertEquals(couponResponse, result);
+		assertThrows(ItemNotFoundException.class, () -> {
+			couponServiceV2.itemsToPurchaseAndTotal(couponRequestV2);
+		});
 	}
 
 	@Test
