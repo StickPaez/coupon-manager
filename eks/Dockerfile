@@ -6,9 +6,9 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # Copiar el archivo pom.xml y otros archivos necesarios al contenedor
-COPY pom.xml /app
-COPY src/main/resources/bootstrap.yml /app
-COPY src /app/src
+COPY ../pom.xml /app
+COPY ../src/main/resources/bootstrap.yml /app
+COPY ../src /app/src
 
 # Construir el proyecto Maven
 RUN mvn -f pom.xml clean package
