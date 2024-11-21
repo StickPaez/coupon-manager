@@ -54,8 +54,11 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu entorno local:
    - IDE: Es recomendable usar un entorno de desarrollo como IntelliJ IDEA, Eclipse.
      - [Descargar IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/download).
      - [Descargar Eclipse](https://www.jetbrains.com/es-es/idea/download).
+     
 
 2. Descargar fuentes desde GitHub en el siguiente enlace --> [Descargar fuentes de proyecto](https://github.com/StickPaez/coupon-manager)
+
+
 3. Abrir el proyecto con tu IDE:
    - **Si tienes Intellij IDEA**
       - Abre IntelliJ IDEA.
